@@ -1,11 +1,10 @@
 ﻿using Microsoft.Extensions.Configuration;
+using Gaspra.Signing.Interfaces;
 
 namespace Gaspra.Connection
 {
     public static class ConnectionDetailsExtensions
     {
-        /*Need to create and add Gaspra.Signing nuget package*/
-        /*
         public static ConnectionDetails FromEncryptedConfiguration(
             IConfigurationSection ConnectionDetailSection,
             SigningService signingService)
@@ -15,7 +14,7 @@ namespace Gaspra.Connection
                     signingService.Decrypt(ConnectionDetailSection[nameof(ConnectionDetails.InitialCatalogue)]),
                     signingService.Decrypt(ConnectionDetailSection[nameof(ConnectionDetails.UserId)]),
                     signingService.Decrypt(ConnectionDetailSection[nameof(ConnectionDetails.Password)])
-                    );
+                );
         }
 
         public static string ToEncryptedJson(
@@ -29,7 +28,17 @@ namespace Gaspra.Connection
                 ""Password"": ""{signingService.Encrypt(connectionDetails.Password)}""
             }}";
         }
-        */
+
+        public static ConnectionDetails FromConfiguration(
+            IConfigurationSection ConnectionDetailSection)
+        {
+            return new ConnectionDetails(
+                    ConnectionDetailSection[nameof(ConnectionDetails.DataSource)],
+                    ConnectionDetailSection[nameof(ConnectionDetails.InitialCatalogue)],
+                    ConnectionDetailSection[nameof(ConnectionDetails.UserId)],
+                    ConnectionDetailSection[nameof(ConnectionDetails.Password)]
+                );
+        }
 
         public static string ToConnectionString(this ConnectionDetails connectionDetails)
         {
