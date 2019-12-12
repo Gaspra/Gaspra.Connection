@@ -5,8 +5,8 @@ namespace Gaspra.Connection
 {
     public static class ConnectionDetailsExtensions
     {
-        public static ConnectionDetails FromEncryptedConfiguration(
-            IConfigurationSection ConnectionDetailSection,
+        public static ConnectionDetails EncryptedToConnectionDetails(
+            this IConfigurationSection ConnectionDetailSection,
             SigningService signingService)
         {
             return new ConnectionDetails(
@@ -29,8 +29,8 @@ namespace Gaspra.Connection
             }}";
         }
 
-        public static ConnectionDetails FromConfiguration(
-            IConfigurationSection ConnectionDetailSection)
+        public static ConnectionDetails ToConnectionDetails(
+            this IConfigurationSection ConnectionDetailSection)
         {
             return new ConnectionDetails(
                     ConnectionDetailSection[nameof(ConnectionDetails.DataSource)],

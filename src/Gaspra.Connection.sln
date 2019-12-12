@@ -8,7 +8,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{C4A6CB
 		..\paket.dependencies = ..\paket.dependencies
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gaspra.Connection", "Gaspra.Connection/Gaspra.Connection.csproj", "{A8350365-829B-4132-87B8-EEE1C871F8BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gaspra.Connection", "Gaspra.Connection\Gaspra.Connection.csproj", "{A8350365-829B-4132-87B8-EEE1C871F8BA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "icon", "icon", "{9F03D15D-84B9-48B7-9935-715352C71CD7}"
+	ProjectSection(SolutionItems) = preProject
+		icon.png = icon.png
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
